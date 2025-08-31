@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@layer base {
+  body{
+    font-family: "Inter", sans-serif;
+    min-height: 100vh;
+    background: #0f172a;
+  }
+  
+  html, body {
+    overflow-x: hidden;
+  }
+}
+
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Mobile: smaller grid */
+@media (max-width: 768px) {
+  .bg-grid-pattern {
+    background-size: 25px 25px;
+  }
+}
+
+.bubble-chat {
+  position: relative;
+}
+
+.bubble-chat::before {
+  content: '';
+  position: absolute;
+  top: -13px;
+  left: 10px;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid rgba(30, 58, 138, 0.8);
+}
+
+.contact-text{
+  font-size: 20px;
+}
+
+/* Mobile responsive untuk bubble chat */
+@media (max-width: 640px) {
+  .bubble-chat::before {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid rgba(30, 58, 138, 0.8);
+    top: -10px;
+    left: 8px;
+  }
+}
+
+/* Utilities untuk mobile optimization */
+@layer utilities {
+  .mobile-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  .mobile-text {
+    @apply text-sm sm:text-base lg:text-lg;
+  }
+  
+  .mobile-card {
+    @apply p-3 sm:p-4 lg:p-6;
+  }
+}
